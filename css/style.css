@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@100;400;500;600;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+:root {
+    --cor-botao: #82bfa0;
+    --cor-header: #7a6f5d;
+    --cor-thead: #c6d1a6;
+    --cor-fonte-contraste: #fff;
+    --cor-fonte-black: #000;
+
+    --fonte-titulo: 'Krona One', sans-serif;
+    --fonte-input: 'Montserrat', sans-serif;
+    --fonte-placeholder: 'Roboto', sans-serif;
+    --fonte-tabela: 'Montserrat', sans-serif;
+}
 
 * {
     padding: 0;
@@ -11,50 +24,54 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 100;
 }
 
 header {
-    background-color: #a76de9;
+    font-family: var(--fonte-titulo);
+    font-size: 1rem;
+    font-weight: 700;
+    background-color: var(--cor-botao);
     text-align: center;
     padding: 20px;
-    font-weight: 700;
-    color: #DFCEF2;
+    color: var(--cor-fonte-contraste);
     width: 100vw;
 }
 
 #content-entrada {
     padding: 20px;
-    /*  border: 1px solid; */
 }
 
 #titulo {
-    margin-bottom: 1rem;
+    color: var(--cor-fonte-black);
+    padding: 8px;
 }
 
 #titulo h1 {
-    font-size: 36px;
+    font-family: var(--fonte-titulo);
+    font-size: 1.5rem;
 }
 
 #titulo h2 {
-    font-size: 16px;
-    font-weight: 100;
+    font-family: var(--fonte-tabela);
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 #card {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
-    padding: 15px;
+    padding: 16px;
     border-radius: 10px;
     width: 95vw;
 }
 
 .entrada label {
+    font-family: var(--fonte-tabela);
+    font-weight: 700;
+    font-size: 1rem;
     display: block;
     margin-bottom: 5px;
-    font-weight: 600;
-
+    
 }
 
 .entrada input {
@@ -64,18 +81,24 @@ header {
     margin-bottom: 16px;
 }
 
+.entrada input::placeholder{
+    font-family: var(--fonte-placeholder);
+    font-weight: 300;
+    color: var(--cor-fonte-black);
+}
 #botoes {
     display: flex;
     gap: 10px;
 }
 
 #botoes button {
-    font-size: 16px;
+    font-family: var(--fonte-tabela);
+    font-size: 1rem;
     font-weight: 700;
-    background-color: #DFCEF2;
+    background-color: var(--cor-botao);
     border-radius: 10px;
     height: 30px;
-    color: #a76de9;
+    color: var(--cor-fonte-contraste);
 }
 
 #adicionar-produto {
@@ -98,23 +121,27 @@ header {
 }
 
 #lista-produtos thead {
-    background: #a76de9;
-    color: #DFCEF2;
+    background: var(--cor-thead);
+    font-family: var(--fonte-tabela);
+    color: var(--cor-fonte-black);
     border: 0.1px solid #f0f0f0;
 
 }
 
-#lista-produtos tbody{
+#lista-produtos tbody {
     background: #f0f0f0;
 }
 
-#lista-produtos td, th {
+#lista-produtos td,
+th {
+    font-family: var(--fonte-placeholder);
+    font-weight: 400;
     text-align: center;
     border: 0.5px solid #ccc;
     width: 200px;
     padding: 5px;
 }
 
-table td img{
+table td img {
     width: 22px;
 }
