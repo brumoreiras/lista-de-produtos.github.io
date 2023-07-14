@@ -1,8 +1,10 @@
+import {armazenaProduto, removerDoLocalStorage, carregarDoLocalStorage} from './armazenaDados.js'
 
 let botaoAdicionar = document.querySelector('#adicionar-produto');
 let botaoLimpar = document.querySelector('#limpar-lista');
 let id = 1;
-const arrayProdutos = [];
+
+export const arrayProdutos = JSON.parse(localStorage.getItem('arrayProdutos')) || [];
 
 function criaListaDeProdutos() {
     const objetoProdutos = {};
@@ -41,6 +43,8 @@ function validaCampo(objetoProdutos) {
 function criaTabela() {
     let tabela = document.getElementById('cria-linhas');
     tabela.innerHTML = "";
+
+
     arrayProdutos.forEach((item, indice) => {
 
         let adicionarProdutoTr = document.createElement('tr');
@@ -70,28 +74,30 @@ function criaTabela() {
         imgDeletar.src = 'imgs/delete.png';
         imgDeletar.addEventListener('click', () => {
             arrayProdutos.splice(indice, 1);
+            removerDoLocalStorage(item.id)
             criaTabela();
         });
 
         tabela.appendChild(adicionarProdutoTr);
+
     });
 }
 
 function adicionarProduto() {
     if (validaCampo(criaListaDeProdutos())) {
         contemProdutos(criaListaDeProdutos());
+        armazenaProduto();
     }
 
     criaTabela();
     console.log(arrayProdutos);
-
-
-
 }
+
 function limparProduto() {
     document.getElementById('nome-produto').value = '';
     document.getElementById('preco-produto').value = '';
 }
+
 botaoAdicionar.addEventListener('click', () => {
     adicionarProduto();
     limparProduto();
@@ -102,11 +108,5 @@ botaoLimpar.addEventListener('click', () => {
     alert('Digite novos produtos');
 });
 
-
-
-
-
-
-
-
-
+carregarDoLocalStorage(arrayProdutos, id);
+criaTabela(arrayProdutos);

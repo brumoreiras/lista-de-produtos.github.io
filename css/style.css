@@ -121,9 +121,9 @@ header {
 }
 
 #lista-produtos thead {
-    background: var(--cor-thead);
+    background: var(--cor-botao);
     font-family: var(--fonte-tabela);
-    color: var(--cor-fonte-black);
+    color: var(--cor-fonte-contraste);
     border: 0.1px solid #f0f0f0;
 
 }
@@ -141,7 +141,6 @@ th {
     width: 200px;
     padding: 5px;
 }
-
 table td img {
     width: 22px;
 }
